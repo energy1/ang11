@@ -2,6 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import { IWidgetItem, widgetItems$ } from '../data/widget-items';
 import {SelectedWidgetItemService} from '../services/selected-widget-item.service';
+import {IStore} from '../store';
+import {GetWidgetItemsPending} from '../store/actions/widgetItems.action';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-widget',
@@ -13,7 +16,7 @@ export class WidgetComponent implements OnInit, OnDestroy {
   public basicSubscription: Subscription;
   public widgetItemType: string;
 
-  constructor(private _selectedWidgetItemService: SelectedWidgetItemService) { }
+  constructor(private _selectedWidgetItemService: SelectedWidgetItemService, private _store: Store<IStore>) { }
 
   private getItemsTypes(items: IWidgetItem[]): string[] {
     const result: string[] = [];
@@ -26,6 +29,7 @@ export class WidgetComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this._store.dispatch(new GetWidgetItemsPending());
     this.basicSubscription = widgetItems$.subscribe(x => {
       this.items = x;
       this.itemsTypes = this.getItemsTypes(x);

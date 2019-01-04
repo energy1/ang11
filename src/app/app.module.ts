@@ -10,6 +10,10 @@ import { WidgetItemComponent } from './widget-item/widget-item.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { TypeFilterPipe } from './pipes/type-filter.pipe';
 import { SelectedTypePipe } from './pipes/selected-type.pipe';
+import {StoreModule} from '@ngrx/store';
+import {environment} from '../environments/environment.prod';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {reducers} from './store';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { SelectedTypePipe } from './pipes/selected-type.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+      environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
