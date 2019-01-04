@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {Observable, of} from 'rxjs';
-import {GET_WIDGET_ITEMS_PENDING, GetWidgetItemsSuccess, GetWidgetItemsError} from '../actions/widgetItems.action';
+import {GET_WIDGET_ITEMS_PENDING, GetWidgetItemsSuccess, GetWidgetItemsError} from '../actions/widgetItemsAction';
 import {Action} from '@ngrx/store';
-import {catchError, delay, map, switchMap, tap} from 'rxjs/operators';
+import {catchError, delay, map, switchMap} from 'rxjs/operators';
 import {IWidgetItem, widgetItems} from '../../data/widget-items';
 
 @Injectable()

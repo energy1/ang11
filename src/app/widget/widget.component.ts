@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import { IWidgetItem} from '../data/widget-items';
-import {SelectedWidgetItemService} from '../services/selected-widget-item.service';
 import {IStore} from '../store';
-import {GetWidgetItemsPending} from '../store/actions/widgetItems.action';
+import {GetWidgetItemsPending} from '../store/actions/widgetItemsAction';
 import {Store} from '@ngrx/store';
+import {GetSelectedWidgetItemPending} from '../store/actions/selectedWidgetItemAction';
 
 @Component({
   selector: 'app-widget',
@@ -16,7 +16,7 @@ export class WidgetComponent implements OnInit, OnDestroy {
   public basicSubscription: Subscription;
   public widgetItemType: string;
 
-  constructor(private _selectedWidgetItemService: SelectedWidgetItemService, private _store: Store<IStore>) { }
+  constructor(private _store: Store<IStore>) { }
 
   private getItemsTypes(items: IWidgetItem[]): string[] {
     const result: string[] = [];
@@ -47,7 +47,7 @@ export class WidgetComponent implements OnInit, OnDestroy {
 
   // when clicking on item
   public nextSelectedWidgetItem(item: IWidgetItem): void {
-    this._selectedWidgetItemService.nextSelectedWidgetItem$$.next(item);
+    this._store.dispatch(new GetSelectedWidgetItemPending(item.id));
   }
   // when clicking on type link
   public changeWidgetItemType(selectedType: string): void {

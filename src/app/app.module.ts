@@ -16,6 +16,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {reducers} from './store';
 import {EffectsModule} from '@ngrx/effects';
 import {WidgetItemsEffect} from './store/effects/widgetItemsEffect';
+import {SelectedWidgetItemEffect} from './store/effects/selectedWidgetItemEffect';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {WidgetItemsEffect} from './store/effects/widgetItemsEffect';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
-      EffectsModule.forRoot([WidgetItemsEffect]),
+      EffectsModule.forRoot([WidgetItemsEffect, SelectedWidgetItemEffect]),
       environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [],

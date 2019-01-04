@@ -3,6 +3,7 @@ import {delay} from 'rxjs/operators';
 
 export interface IWidgetItem {
   img: string;
+  id: string;
   address: string;
   phone:  number;
   shortDescription: string;
@@ -22,6 +23,7 @@ export interface IWidgetItem {
 }
 
 export const widgetItems: IWidgetItem[] = [{
+    id: '1',
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF4Bq5AtQ_QLmONI3BobqtOHGF1FpimmWwk3bNu67yL7OqVruEug',
     address: 'г. Паланга',
     phone:  375256902500,
@@ -40,6 +42,7 @@ export const widgetItems: IWidgetItem[] = [{
     },
     type: 'fishing'
   }, {
+  id: '2',
   img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Здание_санатория_«Орджоникидзе»_%28Сочи%2C_курортный_пр.%29102.jpg/271px-Здание_санатория_«Орджоникидзе»_%28Сочи%2C_курортный_пр.%29102.jpg',
   address: 'г. Сочи',
   phone:  375335782623,
@@ -59,6 +62,7 @@ social_info: {
 type: 'apartments'
 },
   {
+    id: '3',
   img: 'https://avatars.mds.yandex.net/get-pdb/49816/aa6fdb0c-ca9c-4753-a643-fac0a7e4e0d8/orig',
   address: 'г. Хургада',
   phone:  375292603405,
@@ -77,6 +81,7 @@ type: 'apartments'
   },
   type: 'resort'
 }, {
+  id: '4',
   img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Larnaca_01-2017_img14_Finikoudes.jpg/290px-Larnaca_01-2017_img14_Finikoudes.jpg',
   address: 'г. Ларнака',
   phone:  375292562332,
@@ -95,6 +100,7 @@ type: 'apartments'
   },
   type: 'resort'
 }, {
+  id: '5',
   img: 'https://euroroaming.ru/wp-content/uploads/2017/06/Stanbul-avatar.jpg',
   address: 'г. Стамбул',
   phone:  375292603405,
