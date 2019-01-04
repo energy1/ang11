@@ -12,7 +12,7 @@
     <span class="line"> </span>
     <div class="activity_box">
       <div class="scrollbar" id="style-2">
-        <ng-container *ngIf="items; else loadingTemplate">
+        <ng-container *ngIf="items?.length > 0; else loadingTemplate">
           <ng-container *ngFor="let item of items | selectedType: widgetItemType; index as i">
             <app-widget-item [widgetItem] = item (click)="nextSelectedWidgetItem(item)"></app-widget-item>
           </ng-container>

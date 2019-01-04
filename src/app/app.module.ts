@@ -11,9 +11,11 @@ import { SafePipe } from './pipes/safe.pipe';
 import { TypeFilterPipe } from './pipes/type-filter.pipe';
 import { SelectedTypePipe } from './pipes/selected-type.pipe';
 import {StoreModule} from '@ngrx/store';
-import {environment} from '../environments/environment.prod';
+import {environment} from '../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {reducers} from './store';
+import {EffectsModule} from '@ngrx/effects';
+import {WidgetItemsEffect} from './store/effects/widgetItemsEffect';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import {reducers} from './store';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
+      EffectsModule.forRoot([WidgetItemsEffect]),
       environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [],

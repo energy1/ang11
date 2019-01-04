@@ -4,7 +4,8 @@ import {GET_WIDGET_ITEMS_ERROR, GET_WIDGET_ITEMS_PENDING, GET_WIDGET_ITEMS_SUCCE
 const initialState: IWidgetItem[] = [];
 
 export function widgetItemsReducer(state = initialState, action: any) {
-    console.log('test');
+    // tslint:disable-next-line
+    //debugger;
     switch (action.type) {
         case GET_WIDGET_ITEMS_SUCCESS:
             return action.payload;

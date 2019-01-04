@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import { IWidgetItem, widgetItems$ } from '../data/widget-items';
+import { IWidgetItem} from '../data/widget-items';
 import {SelectedWidgetItemService} from '../services/selected-widget-item.service';
 import {IStore} from '../store';
 import {GetWidgetItemsPending} from '../store/actions/widgetItems.action';
@@ -30,7 +30,7 @@ export class WidgetComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._store.dispatch(new GetWidgetItemsPending());
-    this.basicSubscription = widgetItems$.subscribe(x => {
+    this.basicSubscription = this._store.select('widgetItems').subscribe(x => {
       this.items = x;
       this.itemsTypes = this.getItemsTypes(x);
       if (x.length > 0) {

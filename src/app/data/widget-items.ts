@@ -113,5 +113,3 @@ type: 'apartments'
   },
   type: 'apartments'
 }];
-
-export const widgetItems$: Observable<IWidgetItem[]> = of(widgetItems).pipe(delay(3000));
