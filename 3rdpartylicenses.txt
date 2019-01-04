@@ -275,6 +275,9 @@ MIT
 @angular/router
 MIT
 
+@ngrx/store
+MIT
+
 zone.js
 MIT
 The MIT License
